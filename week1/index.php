@@ -9,37 +9,37 @@
     <?php
 
 
-$name = "Abdiwasac";
+// $name = ' Abdiwasac';
 
-echo "My name is $name";
+// echo "My name is $name";
 
 // Tusaale: echo waxaa loo isticmaalaa in text ama variable lagu soo bandhigo browser-ka.
 
-$name = "Abdiwasac";
+// $name = "Abdiwasac";
 
-print "My name is $name";
+// print "My name is $name";
 
 // Tusaale: print sidoo kale waxaa loo isticmaalaa in hal value lagu soo bandhigo browser-
 
-    $my_str = 'abdiwasac abdulkadir omar';
+    // $my_str = 'abdiwasac abdulkadir omar';
 
-    echo str_word_count($my_str);
+    // echo str_word_count($my_str);
 
     // Waxay tirisaa tirada erayada.
 
 
 
-    $my_str = 'abdiwasac abdulkadir omar';
+    // $my_str = 'abdiwasac abdulkadir omar';
 
-    echo strlen($my_str);
+    // echo strlen($my_str);
 
     // Waxay tirisaa tirada characters-ka string-ka, oo ay ku jiraan spaces-ka.
 
 
-
-
     // str_word_count() → Words → Erayo
     // strlen()         → Length → Dhererka/characters
+
+
     ?>
     
 </body>
