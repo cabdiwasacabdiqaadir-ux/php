@@ -162,6 +162,10 @@ echo "<br><br>";
 
 echo "<table border='1'>";
 
+echo "<tr>";
+echo "<th colspan='17' style='text-align:center;'>multiplication table</th>";
+echo "</tr>";
+
 for ($i = 1; $i <= 12; $i++) {
 
     echo "<tr>";
@@ -176,7 +180,6 @@ for ($i = 1; $i <= 12; $i++) {
 }
 
 echo "</table>";
-
 echo "<br><br>";
 
 ?>
