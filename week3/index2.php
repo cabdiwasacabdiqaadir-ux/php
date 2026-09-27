@@ -184,6 +184,52 @@ echo "<br><br>";
 
 ?>
 
+<?php
+
+$num = 7;
+$count = 0;
+
+for ($i = 1; $i <= $num; $i++) {
+
+    if ($num % $i == 0) {
+        $count++;
+    }
+
+    
+}
+
+
+
+if ($count == 2) {
+    echo "$num is prime";
+} else {
+    echo "$num is non-prime";
+}
+
+echo "<br><br>";
+?>
+
+<?php
+
+for ($num = 10; $num <= 50; $num++) {
+
+    $count = 0;
+
+    for ($i = 1; $i <= $num; $i++) {
+
+        if ($num % $i == 0) {
+            $count++;
+        }
+    }
+
+    if ($count == 2) {
+        echo $num . " ";
+    }
+}
+echo "<br><br>";
+?>
+
+
  <?php
 $info = array("wasac", "abdikadir", "omar", "jusa", 50);
 
