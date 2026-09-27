@@ -110,6 +110,60 @@
 // }
 
 
+
+// creating array numeric array
+
+// $name= array();
+
+// $name[0]="ca233 worst class";
+
+// echo $name[0]."<br>";
+
+
+// var_dump($name);
+
+
+// $name = array();
+
+// for ($i = 0; $i < 5; $i++) {
+//     $name[$i] = "CA233 Worst Class";
+
+//     echo $name[0] . "<br>";
+// }
+
+// // echo $name[0] . "<br>";
+
+// var_dump($name);
+
+
+// associative arrays
+
+
+// $info = array(
+//     "id" => "abdiwasac ali",
+//     "age" => 19,
+//     "address" => "string",
+//     "status" => "single",
+//     "weight" => 170
+// );
+
+// echo "<pre>";
+
+// echo "Information about the person: <br>";
+
+// print_r($info);
+
+// var_dump($info);
+
+// echo "</pre>";
+
+
+
+
+
+ 
+
+
    
 
     ?>
