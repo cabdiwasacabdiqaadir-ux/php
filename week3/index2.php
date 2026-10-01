@@ -247,7 +247,11 @@ foreach ($info as $names) {
 
 echo "</table>";
 
+
 ?>
+
+
+
     
 </body>
 </html>
