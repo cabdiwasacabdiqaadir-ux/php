@@ -1,58 +1,190 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<form method="post">
-    <label for="">Enter Full Name</label> 
-    <input type="text" name = "name" placeholder="Enter your name"> 
-    <label for="">Enter Password</label> 
-    <input type="password" name="password" placeholder="Enter your password">
-    <label for="">Choose your gender</label> 
-    <input class="male_radio" type="radio" name="sex" value="male"> Male
-    <input class="female_radio" type="radio" name="sex" value="female"> Female
-    <label for="">Choose your faculty</label> 
-    <input class="eng" type="checkbox" name="faculties[]" value="engineering"> Engineering
-     <input class="eng" type="checkbox" name="faculties[]" value="medicine"> medicine
-     <input class="eng" type="checkbox" name="faculties[]" value="computer science"> computer science
-    <label for="">Enter Your Message</label> 
-    <textarea placeholder="Enter your message" cols="30" rows="6" name="message"></textarea>
-    <div class="buttons">
-        <button type="rest" class="rest_button" >Rest From</button>
-        <button type="submit" class="register_button">Register</button>
-    </div>
-</form>
-
 <?php
 
-echo "Fullname is : ".$_POST["name"] ."<br>";
+// 1. Declare and initialize the array
+$array = [5, -7, 12, 10, -7, 11, -6, 12, 1, -7, 2, 9];
 
-echo "password is : ".$_POST["password"] ."<br>";
+// 2. Print all elements
+echo "<h2>All Elements</h2>";
 
-echo "message is : ".$_POST["message"] ."<br>";
-
-if(!Empty($_POST["sex"])){
-    echo "gender is :".$_POST["sex"] ."<br>";
-}
-else {
-    echo "gender are required" ."<br>";
+foreach ($array as $element) {
+    echo $element . " ";
 }
 
-if(!Empty($_POST['faculties'])){
-    foreach($_POST['faculties'] as $faculty){
-        echo "faculty is : $faculty"."<br>";
+// 3. Calculate total of all elements
+$total = 0;
+
+foreach ($array as $element) {
+    $total += $element;
+}
+
+echo "<h2>Total of All Elements</h2>";
+echo $total;
+
+
+// 4. Calculate total of even elements
+$evenTotal = 0;
+
+foreach ($array as $element) {
+    if ($element % 2 == 0) {
+        $evenTotal += $element;
     }
 }
 
-// echo "faculties is".$_POST["faculties"] ."<br>";
+echo "<h2>Total of Even Elements</h2>";
+echo $evenTotal;
 
+
+// 5. Calculate total of odd elements
+$oddTotal = 0;
+
+foreach ($array as $element) {
+    if ($element % 2 != 0) {
+        $oddTotal += $element;
+    }
+}
+
+echo "<h2>Total of Odd Elements</h2>";
+echo $oddTotal;
+
+
+// 6. Find minimum element and its positions
+$minimum = min($array);
+
+$minimumPositions = [];
+
+foreach ($array as $index => $element) {
+    if ($element == $minimum) {
+        $minimumPositions[] = $index;
+    }
+}
+
+echo "<h2>Minimum Element</h2>";
+echo "Minimum = " . $minimum . "<br>";
+
+echo "Positions: ";
+
+foreach ($minimumPositions as $position) {
+    echo $position . " ";
+}
+
+
+// 7. Find maximum element and its positions
+$maximum = max($array);
+
+$maximumPositions = [];
+
+foreach ($array as $index => $element) {
+    if ($element == $maximum) {
+        $maximumPositions[] = $index;
+    }
+}
+
+echo "<h2>Maximum Element</h2>";
+echo "Maximum = " . $maximum . "<br>";
+
+echo "Positions: ";
+
+foreach ($maximumPositions as $position) {
+    echo $position . " ";
+}
 
 ?>
-    
-</body>
-</html>
+
+<?php
+
+$colors = [
+
+    "Light" => [
+        "Red" => "Light Red",
+        "Green" => "Light Green",
+        "Blue" => "Light Blue"
+    ],
+
+    "Normal" => [
+        "Red" => "Normal Red",
+        "Green" => "Normal Green",
+        "Blue" => "Normal Blue"
+    ],
+
+    "Dark" => [
+        "Red" => "Dark Red",
+        "Green" => "Dark Green",
+        "Blue" => "Dark Blue"
+    ]
+
+];
+
+echo "<table border='1' cellpadding='10'>";
+
+echo "<tr>";
+echo "<th></th>";
+echo "<th>Red</th>";
+echo "<th>Green</th>";
+echo "<th>Blue</th>";
+echo "</tr>";
+
+foreach ($colors as $rowName => $row) {
+
+    echo "<tr>";
+
+    echo "<th>" . $rowName . "</th>";
+
+    foreach ($row as $value) {
+        echo "<td>" . $value . "</td>";
+    }
+
+    echo "</tr>";
+}
+
+echo "</table>";
+
+?>
+
+<?php
+
+$students = [
+
+    "CA221" => [
+        "Name" => "Mohamed Ahmed Ali",
+        "Phone" => "0648440403",
+        "Address" => "Laba Dhagax, Wardhiigley"
+    ],
+
+    "CA223" => [
+        "Name" => "Ahmed Abdi Jama",
+        "Phone" => "0647223201",
+        "Address" => "Taleex, Hodan"
+    ],
+
+    "CA221_2" => [
+        "Name" => "Amina Nur Adan",
+        "Phone" => "0646990276",
+        "Address" => "Macmacaanka, Dharkeynley"
+    ]
+
+];
+
+echo "<table border='1' cellpadding='10'>";
+
+echo "<tr>";
+echo "<th>Student ID</th>";
+echo "<th>Name</th>";
+echo "<th>Phone</th>";
+echo "<th>Address</th>";
+echo "</tr>";
+
+foreach ($students as $id => $student) {
+
+    echo "<tr>";
+
+    echo "<td>" . $id . "</td>";
+    echo "<td>" . $student["Name"] . "</td>";
+    echo "<td>" . $student["Phone"] . "</td>";
+    echo "<td>" . $student["Address"] . "</td>";
+
+    echo "</tr>";
+}
+
+echo "</table>";
+
+?>

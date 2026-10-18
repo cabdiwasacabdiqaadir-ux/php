@@ -1,44 +1,112 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>File Upload</title>
 </head>
 <body>
-    
+
+<form action="weee5;1.php" method="POST" enctype="multipart/form-data">
+
+    <label>Select image:</label>
+    <input type="file" name="image">
+
+    <br><br>
+
+    <label>Rename file:</label>
+    <input type="text" name="newName" placeholder="Enter new name">
+
+    <br><br>
+
+    <input type="submit" name="submit" value="Upload">
+
+</form>
+
 <?php
 
-    if(!empty($_FILES["image"]["name"])){
-        echo "File name is". $_FILES["image"]["name"];
-        echo "<hr>";
-        echo "File size is". $_FILES["image"]["size"];
-        "<hr>";
-        echo "File type is". $_FILES["image"]["type"];
+if (isset($_POST['submit'])) {
 
-        "<hr>";
+    if (!empty($_FILES['image']['name'])) {
 
-        $tmp = $_FILES["image"]["tmp_name"];
-        $destination = "C:/Users/hp/Desktop/PHP/Image" . $_FILES["image"]["name"];
+        // File information
+        $fileName = $_FILES['image']['name'];
+        $fileSize = $_FILES['image']['size'];
+        $fileType = $_FILES['image']['type'];
+        $temp = $_FILES['image']['tmp_name'];
 
-        if(move_uploaded_file($tmp,$destination)){
-            echo "succesfull upload";
+        echo "Original File Name: " . $fileName . "<hr>";
+
+        echo "File Size: " . $fileSize . " bytes<hr>";
+
+        echo "File Temporary Location: "
+            . $temp . "<hr>";
+
+        echo "File Type: " . $fileType . "<hr>";
+
+
+        // Maximum file size = 10KB
+        $maxSize = 10 * 1024;
+
+        if ($fileSize > $maxSize) {
+
+            echo "File is too large. Maximum size is 10KB.";
+
+        } else {
+
+            // Check if user entered a new name
+            if (!empty($_POST['newName'])) {
+
+                $newName = $_POST['newName'];
+
+                // Get original extension
+                $extension = pathinfo(
+                    $fileName,
+                    PATHINFO_EXTENSION
+                );
+
+                // Add original extension
+                $newFileName = $newName . "." . $extension;
+
+            } else {
+
+                echo "Please enter a new file name.";
+
+                exit;
+            }
+
+
+            echo "New File Name: "
+                . $newFileName . "<hr>";
+
+
+            // Destination
+            $destination =
+                "C:/Users/ktc/Desktop/PHP/Image/"
+                . $newFileName;
+
+
+            // Move file
+            if (move_uploaded_file($temp, $destination)) {
+
+                echo "Successful upload";
+
+            } else {
+
+                echo "Upload failed";
+
+            }
         }
-        else {
-            echo "field to upload";
-        }
+
+    } else {
+
+        echo "Please select a file.";
 
     }
-    else{
-        echo "please select file";
-    }
-    ?>
+}
 
-     <form action="java.php" method="POST" enctype="multiPart/form-data">
-        <label for="">select gender</label> <br>
-        <input type="file" name="image"> <br>
-        <input type="submit" name="submit" value="upload"> uplod file
-    </form>
+?>
+
 </body>
 </html>
-
